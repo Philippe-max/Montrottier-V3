@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Montrottier V2", "Montrottier V2.csproj", "{629528B2-FA84-424D-86F3-707DE5D9E4DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{629528B2-FA84-424D-86F3-707DE5D9E4DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629528B2-FA84-424D-86F3-707DE5D9E4DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629528B2-FA84-424D-86F3-707DE5D9E4DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629528B2-FA84-424D-86F3-707DE5D9E4DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C99E57C0-0404-466F-AA1E-CAC9511C6402}
+	EndGlobalSection
+EndGlobal
