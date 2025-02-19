@@ -1,6 +1,6 @@
 ﻿namespace Montrottier_V2
 {
-    partial class QuitanceAImprimer
+    partial class ImprimeListChargeLoc
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // label1
+            // reportViewer1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Philippe SAUVAGE\r\nVimala VANNAVONGS\r\n209 rue de Poil rouge\r\n71260 St Gengoux de s" +
-    "cisse";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Montrottier_V2.RPTListCharges.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 1);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(788, 246);
+            this.reportViewer1.TabIndex = 0;
             // 
-            // QuitanceAImprimer
+            // ImprimeListChargeLoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "QuitanceAImprimer";
-            this.Text = "QuitanceAImprimer";
+            this.Controls.Add(this.reportViewer1);
+            this.Name = "ImprimeListChargeLoc";
+            this.Text = "Form2";
+            this.Load += new System.EventHandler(this.ImprimeListChargeLoc_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

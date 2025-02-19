@@ -32,5 +32,16 @@ namespace Montrottier_V2.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Montrottier;Integrated Securit" +
+            "y=True")]
+        public string MontrottierConnectionString {
+            get {
+                return ((string)(this["MontrottierConnectionString"]));
+            }
+        }
     }
 }

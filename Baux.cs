@@ -26,8 +26,34 @@ namespace Montrottier_V2
 
         private void RefreshDataGrid()
         {
-            string strSQL = "select from baux where archive = 0";
+            dataGridView1.Rows.Clear();
+            SqlConnection c = new SqlConnection(Form1.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
 
+
+            if (chbArchives.Checked == true)
+            {
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2,  Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot";
+
+            }
+            else
+            {
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2, Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot where Baux.Archive = 0";
+
+
+            }
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string slocataire = reader["Nom1"].ToString() + ' ' + reader["Prenom1"].ToString() + '/' + reader["Nom2"].ToString() + ' ' + reader["Prenom2"].ToString();
+                string sLot = reader["Type"].ToString() + ' ' + reader["Situation"].ToString();
+                dataGridView1.Rows.Add(slocataire, sLot, reader["MntLoyerHCInit"], reader[3], reader[4], reader["BoiteLettre"]);
+
+            }
+            c.Close();
         }
 
 
@@ -46,14 +72,15 @@ namespace Montrottier_V2
 
             // liste deroulante des locataires disponibles
             string strLocataire;
-            command.CommandText = "select id, nom1, Prenom1, nom2, Prenom2 from Locataires where archive =  0";
+            command.CommandText = "select IdLocataire, nom1, Prenom1, nom2, Prenom2 from Locataires where archive =  0";
             SqlDataReader DataReaderLocataires = command.ExecuteReader();
             while (DataReaderLocataires.Read())
             {
-                strLocataire = DataReaderLocataires["id"].ToString() + ' ' + DataReaderLocataires["nom1"].ToString() + ' ' + DataReaderLocataires["Prenom1"].ToString() + " / " + DataReaderLocataires["nom2"].ToString() + " " + DataReaderLocataires["Prenom2"].ToString();
+                strLocataire = DataReaderLocataires["IdLocataire"].ToString() + ' ' + DataReaderLocataires["nom1"].ToString() + ' ' + DataReaderLocataires["Prenom1"].ToString() + " / " + DataReaderLocataires["nom2"].ToString() + " " + DataReaderLocataires["Prenom2"].ToString();
                 lstLocataires.Items.Add(strLocataire);
             }
             DataReaderLocataires.Close();
+
             // liste deroulante des lots libres
             string strLot;
             command.CommandText = " select idLot, Type, Surface, Niveau, Situation from TLots";
@@ -75,13 +102,32 @@ namespace Montrottier_V2
             idLot = RecupereId(lstLots.Text);
             // recupere id du locataire
             int idLocataire;
-            idLocataire = RecupereId(lstLots.Text);
+            idLocataire = RecupereId(lstLocataires.Text);
 
-            
+            SqlConnection c = new SqlConnection(Form1.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
+
             string strSQL;
-            strSQL = "INSERT INTO Baux IdLot, IdLocataire, DateDebutBail, MntLoyerHCInit,MntProvCharges VALUES ('" + idLot + "," + idLocataire + "," + dTPdebut.Value;
+            strSQL = "INSERT INTO Baux ( IdLot, IdLocataire, DateDebutBail, MntLoyerHCInit,MntProvCharges ) VALUES (@idLot , @idLocataire, @DateDebutBail,@MntHCinit,@ProvCharges)";
             MessageBox.Show(strSQL);
+            command.CommandText = strSQL;
 
+
+            SqlParameter prm1 = new SqlParameter("@idLot", idLot);
+            SqlParameter prm2 = new SqlParameter("@idLocataire", idLocataire);
+            SqlParameter prm3 = new SqlParameter("@DateDebutBail", dTPdebut.Value.Date);
+            SqlParameter prm4 = new SqlParameter("@MntHCinit", 200);
+            SqlParameter prm5 = new SqlParameter("@ProvCharges", 200);
+
+            command.Parameters.Add(prm1);
+            command.Parameters.Add(prm2);
+            command.Parameters.Add(prm3);
+            command.Parameters.Add(prm4);
+            command.Parameters.Add(prm5);
+
+            command.ExecuteNonQuery();
 
         }
 
@@ -92,6 +138,16 @@ namespace Montrottier_V2
             SData = sSelection.Split(' ');
             iData = Int32.Parse(SData[0]); 
             return iData;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chbArchives_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshDataGrid();
         }
     }
 }

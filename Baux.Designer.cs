@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MntHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MntCharges = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstLocataires = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,25 +46,76 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMntCHinit = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtProvCharges = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.chbArchives = new System.Windows.Forms.CheckBox();
             this.dTPRevision = new System.Windows.Forms.DateTimePicker();
             this.dTPdebut = new System.Windows.Forms.DateTimePicker();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.MntHC,
+            this.MntCharges,
+            this.Column3,
+            this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(47, 38);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.Size = new System.Drawing.Size(933, 219);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Locataire";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Lot";
+            this.Column2.Name = "Column2";
+            // 
+            // MntHC
+            // 
+            this.MntHC.HeaderText = "MntHC";
+            this.MntHC.Name = "MntHC";
+            // 
+            // MntCharges
+            // 
+            this.MntCharges.HeaderText = "MntCharges";
+            this.MntCharges.Name = "MntCharges";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Date Derniere Reval";
+            this.Column3.Name = "Column3";
             // 
             // lstLocataires
             // 
@@ -97,7 +155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(508, 297);
+            this.label3.Location = new System.Drawing.Point(754, 306);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 6;
@@ -116,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(750, 297);
+            this.label4.Location = new System.Drawing.Point(754, 359);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 9;
@@ -147,12 +205,12 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Montant HC init";
             // 
-            // textBox2
+            // txtMntCHinit
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 379);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(77, 20);
-            this.textBox2.TabIndex = 12;
+            this.txtMntCHinit.Location = new System.Drawing.Point(47, 379);
+            this.txtMntCHinit.Name = "txtMntCHinit";
+            this.txtMntCHinit.Size = new System.Drawing.Size(77, 20);
+            this.txtMntCHinit.TabIndex = 12;
             // 
             // label7
             // 
@@ -163,12 +221,12 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Provi. Charges";
             // 
-            // textBox3
+            // txtProvCharges
             // 
-            this.textBox3.Location = new System.Drawing.Point(243, 379);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(75, 20);
-            this.textBox3.TabIndex = 14;
+            this.txtProvCharges.Location = new System.Drawing.Point(243, 379);
+            this.txtProvCharges.Name = "txtProvCharges";
+            this.txtProvCharges.Size = new System.Drawing.Size(75, 20);
+            this.txtProvCharges.TabIndex = 14;
             // 
             // label8
             // 
@@ -205,26 +263,52 @@
             this.chbArchives.TabIndex = 19;
             this.chbArchives.Text = "Archives";
             this.chbArchives.UseVisualStyleBackColor = true;
+            this.chbArchives.CheckedChanged += new System.EventHandler(this.chbArchives_CheckedChanged);
             // 
             // dTPRevision
             // 
-            this.dTPRevision.Location = new System.Drawing.Point(753, 314);
+            this.dTPRevision.Location = new System.Drawing.Point(757, 376);
             this.dTPRevision.Name = "dTPRevision";
             this.dTPRevision.Size = new System.Drawing.Size(200, 20);
             this.dTPRevision.TabIndex = 20;
             // 
             // dTPdebut
             // 
-            this.dTPdebut.Location = new System.Drawing.Point(511, 314);
+            this.dTPdebut.CustomFormat = "dd/MM/yyyy";
+            this.dTPdebut.Location = new System.Drawing.Point(757, 323);
             this.dTPdebut.Name = "dTPdebut";
             this.dTPdebut.Size = new System.Drawing.Size(200, 20);
             this.dTPdebut.TabIndex = 21;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "B. au lettre";
+            this.Column4.Name = "Column4";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(498, 329);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Numero Boite au lettre";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(616, 323);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(75, 20);
+            this.textBox2.TabIndex = 22;
             // 
             // Baux
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 504);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.dTPdebut);
             this.Controls.Add(this.dTPRevision);
             this.Controls.Add(this.chbArchives);
@@ -232,9 +316,9 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtProvCharges);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtMntCHinit);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
@@ -267,14 +351,22 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMntCHinit;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtProvCharges;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chbArchives;
         private System.Windows.Forms.DateTimePicker dTPRevision;
         private System.Windows.Forms.DateTimePicker dTPdebut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MntHC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MntCharges;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
