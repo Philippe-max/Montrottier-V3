@@ -66,7 +66,7 @@ namespace Montrottier_V2
         {
             // enregistrement de tous les lots presents dans le dataGridView1
             string strSQL;
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;

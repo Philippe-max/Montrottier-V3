@@ -13,6 +13,10 @@ namespace Montrottier_V2
 {
     public partial class Paiements : Form
     {
+
+
+        public int idLocataire;
+
         public Paiements()
         {
             InitializeComponent();
@@ -24,7 +28,7 @@ namespace Montrottier_V2
             numTxtMnt.Controls[0].Visible = false;
             numTxtMntCaf.Controls[0].Visible = false; ;
 
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -40,35 +44,18 @@ namespace Montrottier_V2
                 lstLocataires.Items.Add(strLocataire);
             }
             DataReaderLocataires.Close();
+
+            refeshDataGrid();
         }
 
         private void lstLocataires_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strSQL;
-            int idLocataire;
+            
+
             idLocataire = RecupereId(lstLocataires.Text);
 
-            // affichage historique
-            string sDate;
-            strSQL = "Select Datepaiement, Montant, MontantCAF, Type from Paiements where IdLocataire = " + idLocataire + " order by Datepaiement desc";
-            dataGridView1.Rows.Clear();
-            SqlConnection c = new SqlConnection(Form1.connectionString);
-            c.Open();
-            SqlCommand command = c.CreateCommand();
-            command.Connection = c;
-            command.CommandText = strSQL;
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                sDate = reader["Datepaiement"].ToString();
-                sDate = sDate.Substring(0,8);
-                dataGridView1.Rows.Add(sDate, reader["Montant"].ToString(), reader["MontantCAF"].ToString(), reader["Type"].ToString() );
-                
-            }
-
-
-            
-            c.Close();
+            // affichage historique des paiements dans datagrid
+            refeshDataGrid();
         }
         private int RecupereId(string sSelection)
         {
@@ -87,8 +74,31 @@ namespace Montrottier_V2
             else if (rbnCheque.Checked == true)
                 sType = "Cheq.";
             else if (rbnEspeces.Checked == true)
-                sType= "Esp.";
+                sType = "Esp.";
             return sType;
+        }
+
+        private void refeshDataGrid()
+        {
+            string strSQL;
+            string sDate;
+            strSQL = "Select Datepaiement, Montant, MontantCAF, Type from Paiements where IdLocataire = " + idLocataire + " order by Datepaiement desc";
+            dataGridView1.Rows.Clear();
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
+            command.CommandText = strSQL;
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                sDate = reader["Datepaiement"].ToString();
+                sDate = sDate.Substring(0, 8);
+                dataGridView1.Rows.Add(sDate, reader["Montant"].ToString(), reader["MontantCAF"].ToString(), reader["Type"].ToString());
+
+            }
+            c.Close();
+
         }
 
         private void btnEnr_Click(object sender, EventArgs e)
@@ -103,7 +113,7 @@ namespace Montrottier_V2
 
             strSQL = "INSERT INTO Paiements (idLocataire, Datepaiement, Montant,MontantCAF, Type ) VALUES ('" + idLocataire + "',@Datepaiement,'" + numTxtMnt.Value + "','" + numTxtMntCaf.Value + "','" + strType + "')";
             MessageBox.Show(strSQL);
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -111,6 +121,9 @@ namespace Montrottier_V2
             SqlParameter prm = new SqlParameter("@Datepaiement", dtpDatePaiement.Value.Date);
             command.Parameters.Add(prm);
             command.ExecuteNonQuery();
+
+            refeshDataGrid();
+
         }
 
     }

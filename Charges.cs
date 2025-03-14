@@ -18,10 +18,30 @@ namespace Montrottier_V2
             InitializeComponent();
         }
 
+        private void initListCharges()
+        {
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
+
+
+            command.CommandText = "select distinct Element from ChargesLoc ";
+
+
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                lstElement.Items.Add(reader[0]);
+
+            }
+            c.Close();
+        }
 
         private void Charges_Load(object sender, EventArgs e)
         {
-
+            //initialise la Liste deroulante des charges
+            initListCharges();
             RefreshDataGrid();
 
         }
@@ -29,7 +49,7 @@ namespace Montrottier_V2
         private void RefreshDataGrid()
         {
             dataGridView1.Rows.Clear();
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -55,7 +75,7 @@ namespace Montrottier_V2
             
             strSQL = "INSERT INTO ChargesLoc ( DateFacture, Element, Montant ) VALUES (@DateFacture,'" + txtCharge.Text + "','" + numMontant.Value + "')";
             MessageBox.Show(strSQL);
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;

@@ -27,7 +27,7 @@ namespace Montrottier_V2
         private void RefreshDataGrid()
         {
             dataGridView1.Rows.Clear();
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -64,7 +64,7 @@ namespace Montrottier_V2
 
 
 
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -104,7 +104,7 @@ namespace Montrottier_V2
             int idLocataire;
             idLocataire = RecupereId(lstLocataires.Text);
 
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -128,6 +128,8 @@ namespace Montrottier_V2
             command.Parameters.Add(prm5);
 
             command.ExecuteNonQuery();
+
+            RefreshDataGrid();
 
         }
 

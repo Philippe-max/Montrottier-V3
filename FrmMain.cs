@@ -13,13 +13,13 @@ namespace Montrottier_V2
 {
    
 
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
 
         public static string connectionString = "Persist Security Info = False; Integrated Security = true;Initial Catalog = Montrottier; Server = (localdb)\\MSSQLLocalDB";
         
 
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
         }

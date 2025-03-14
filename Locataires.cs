@@ -33,7 +33,7 @@ namespace Montrottier_V2
         {
 
             dataGridView1.Rows.Clear();
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -68,7 +68,7 @@ namespace Montrottier_V2
 
             //insertion du locataire
             string SQL;
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -106,7 +106,7 @@ namespace Montrottier_V2
 
             MessageBox.Show("le locataire n'est pas supprimé, il est archivé");
             
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
@@ -155,7 +155,7 @@ namespace Montrottier_V2
         {
             // recherche de la photo de PI dans BD
             string strSQL = "select PIdent1 from Locataires where archive =  0 and Nom1 = '" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;

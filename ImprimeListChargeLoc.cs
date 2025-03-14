@@ -21,7 +21,7 @@ namespace Montrottier_V2
 
         private void ImprimeListChargeLoc_Load(object sender, EventArgs e)
         {
-            SqlConnection c = new SqlConnection(Form1.connectionString);
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = new SqlCommand("select * from ChargesLoc",c);
             SqlDataAdapter d = new SqlDataAdapter(command);

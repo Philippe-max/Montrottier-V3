@@ -22,15 +22,15 @@ namespace Montrottier_V2 {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("MontrottierDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet2 : global::System.Data.DataSet {
+    public partial class MontrottierDataSet1 : global::System.Data.DataSet {
         
-        private ChargesLocDataTable tableChargesLoc;
+        private QuitanceDataTable tableQuitance;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataSet2() {
+        public MontrottierDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Montrottier_V2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected MontrottierDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Montrottier_V2 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ChargesLoc"] != null)) {
-                    base.Tables.Add(new ChargesLocDataTable(ds.Tables["ChargesLoc"]));
+                if ((ds.Tables["Quitance"] != null)) {
+                    base.Tables.Add(new QuitanceDataTable(ds.Tables["Quitance"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Montrottier_V2 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ChargesLocDataTable ChargesLoc {
+        public QuitanceDataTable Quitance {
             get {
-                return this.tableChargesLoc;
+                return this.tableQuitance;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Montrottier_V2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet2 cln = ((DataSet2)(base.Clone()));
+            MontrottierDataSet1 cln = ((MontrottierDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Montrottier_V2 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ChargesLoc"] != null)) {
-                    base.Tables.Add(new ChargesLocDataTable(ds.Tables["ChargesLoc"]));
+                if ((ds.Tables["Quitance"] != null)) {
+                    base.Tables.Add(new QuitanceDataTable(ds.Tables["Quitance"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Montrottier_V2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableChargesLoc = ((ChargesLocDataTable)(base.Tables["ChargesLoc"]));
+            this.tableQuitance = ((QuitanceDataTable)(base.Tables["Quitance"]));
             if ((initTable == true)) {
-                if ((this.tableChargesLoc != null)) {
-                    this.tableChargesLoc.InitVars();
+                if ((this.tableQuitance != null)) {
+                    this.tableQuitance.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Montrottier_V2 {
             this.Namespace = "http://tempuri.org/MontrottierDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableChargesLoc = new ChargesLocDataTable();
-            base.Tables.Add(this.tableChargesLoc);
+            this.tableQuitance = new QuitanceDataTable();
+            base.Tables.Add(this.tableQuitance);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeChargesLoc() {
+        private bool ShouldSerializeQuitance() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Montrottier_V2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet2 ds = new DataSet2();
+            MontrottierDataSet1 ds = new MontrottierDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,27 +270,29 @@ namespace Montrottier_V2 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ChargesLocRowChangeEventHandler(object sender, ChargesLocRowChangeEvent e);
+        public delegate void QuitanceRowChangeEventHandler(object sender, QuitanceRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ChargesLocDataTable : global::System.Data.TypedTableBase<ChargesLocRow> {
+        public partial class QuitanceDataTable : global::System.Data.TypedTableBase<QuitanceRow> {
             
-            private global::System.Data.DataColumn columnIdCharge;
+            private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnDateFacture;
+            private global::System.Data.DataColumn columnPeriode;
             
             private global::System.Data.DataColumn columnElement;
             
             private global::System.Data.DataColumn columnMontant;
             
+            private global::System.Data.DataColumn columnRegle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocDataTable() {
-                this.TableName = "ChargesLoc";
+            public QuitanceDataTable() {
+                this.TableName = "Quitance";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +300,7 @@ namespace Montrottier_V2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ChargesLocDataTable(global::System.Data.DataTable table) {
+            internal QuitanceDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,24 +317,24 @@ namespace Montrottier_V2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ChargesLocDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected QuitanceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn IdChargeColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnIdCharge;
+                    return this.columnId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DateFactureColumn {
+            public global::System.Data.DataColumn PeriodeColumn {
                 get {
-                    return this.columnDateFacture;
+                    return this.columnPeriode;
                 }
             }
             
@@ -354,6 +356,14 @@ namespace Montrottier_V2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RegleColumn {
+                get {
+                    return this.columnRegle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -363,55 +373,56 @@ namespace Montrottier_V2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRow this[int index] {
+            public QuitanceRow this[int index] {
                 get {
-                    return ((ChargesLocRow)(this.Rows[index]));
+                    return ((QuitanceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ChargesLocRowChangeEventHandler ChargesLocRowChanging;
+            public event QuitanceRowChangeEventHandler QuitanceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ChargesLocRowChangeEventHandler ChargesLocRowChanged;
+            public event QuitanceRowChangeEventHandler QuitanceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ChargesLocRowChangeEventHandler ChargesLocRowDeleting;
+            public event QuitanceRowChangeEventHandler QuitanceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ChargesLocRowChangeEventHandler ChargesLocRowDeleted;
+            public event QuitanceRowChangeEventHandler QuitanceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddChargesLocRow(ChargesLocRow row) {
+            public void AddQuitanceRow(QuitanceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRow AddChargesLocRow(System.DateTime DateFacture, string Element, decimal Montant) {
-                ChargesLocRow rowChargesLocRow = ((ChargesLocRow)(this.NewRow()));
+            public QuitanceRow AddQuitanceRow(string Periode, string Element, decimal Montant, string Regle) {
+                QuitanceRow rowQuitanceRow = ((QuitanceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        DateFacture,
+                        Periode,
                         Element,
-                        Montant};
-                rowChargesLocRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowChargesLocRow);
-                return rowChargesLocRow;
+                        Montant,
+                        Regle};
+                rowQuitanceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowQuitanceRow);
+                return rowQuitanceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRow FindByIdCharge(int IdCharge) {
-                return ((ChargesLocRow)(this.Rows.Find(new object[] {
-                            IdCharge})));
+            public QuitanceRow FindById(int Id) {
+                return ((QuitanceRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ChargesLocDataTable cln = ((ChargesLocDataTable)(base.Clone()));
+                QuitanceDataTable cln = ((QuitanceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,64 +430,69 @@ namespace Montrottier_V2 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ChargesLocDataTable();
+                return new QuitanceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnIdCharge = base.Columns["IdCharge"];
-                this.columnDateFacture = base.Columns["DateFacture"];
+                this.columnId = base.Columns["Id"];
+                this.columnPeriode = base.Columns["Periode"];
                 this.columnElement = base.Columns["Element"];
                 this.columnMontant = base.Columns["Montant"];
+                this.columnRegle = base.Columns["Regle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnIdCharge = new global::System.Data.DataColumn("IdCharge", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdCharge);
-                this.columnDateFacture = new global::System.Data.DataColumn("DateFacture", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateFacture);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnPeriode = new global::System.Data.DataColumn("Periode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriode);
                 this.columnElement = new global::System.Data.DataColumn("Element", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnElement);
                 this.columnMontant = new global::System.Data.DataColumn("Montant", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMontant);
+                this.columnRegle = new global::System.Data.DataColumn("Regle", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIdCharge}, true));
-                this.columnIdCharge.AutoIncrement = true;
-                this.columnIdCharge.AutoIncrementSeed = -1;
-                this.columnIdCharge.AutoIncrementStep = -1;
-                this.columnIdCharge.AllowDBNull = false;
-                this.columnIdCharge.ReadOnly = true;
-                this.columnIdCharge.Unique = true;
-                this.columnElement.MaxLength = 50;
+                                this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
+                this.columnPeriode.MaxLength = 10;
+                this.columnElement.MaxLength = 10;
+                this.columnRegle.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRow NewChargesLocRow() {
-                return ((ChargesLocRow)(this.NewRow()));
+            public QuitanceRow NewQuitanceRow() {
+                return ((QuitanceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ChargesLocRow(builder);
+                return new QuitanceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ChargesLocRow);
+                return typeof(QuitanceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ChargesLocRowChanged != null)) {
-                    this.ChargesLocRowChanged(this, new ChargesLocRowChangeEvent(((ChargesLocRow)(e.Row)), e.Action));
+                if ((this.QuitanceRowChanged != null)) {
+                    this.QuitanceRowChanged(this, new QuitanceRowChangeEvent(((QuitanceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +500,8 @@ namespace Montrottier_V2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ChargesLocRowChanging != null)) {
-                    this.ChargesLocRowChanging(this, new ChargesLocRowChangeEvent(((ChargesLocRow)(e.Row)), e.Action));
+                if ((this.QuitanceRowChanging != null)) {
+                    this.QuitanceRowChanging(this, new QuitanceRowChangeEvent(((QuitanceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,8 +509,8 @@ namespace Montrottier_V2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ChargesLocRowDeleted != null)) {
-                    this.ChargesLocRowDeleted(this, new ChargesLocRowChangeEvent(((ChargesLocRow)(e.Row)), e.Action));
+                if ((this.QuitanceRowDeleted != null)) {
+                    this.QuitanceRowDeleted(this, new QuitanceRowChangeEvent(((QuitanceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -502,14 +518,14 @@ namespace Montrottier_V2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ChargesLocRowDeleting != null)) {
-                    this.ChargesLocRowDeleting(this, new ChargesLocRowChangeEvent(((ChargesLocRow)(e.Row)), e.Action));
+                if ((this.QuitanceRowDeleting != null)) {
+                    this.QuitanceRowDeleting(this, new QuitanceRowChangeEvent(((QuitanceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveChargesLocRow(ChargesLocRow row) {
+            public void RemoveQuitanceRow(QuitanceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -518,7 +534,7 @@ namespace Montrottier_V2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet2 ds = new DataSet2();
+                MontrottierDataSet1 ds = new MontrottierDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -536,7 +552,7 @@ namespace Montrottier_V2 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ChargesLocDataTable";
+                attribute2.FixedValue = "QuitanceDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -580,41 +596,41 @@ namespace Montrottier_V2 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ChargesLocRow : global::System.Data.DataRow {
+        public partial class QuitanceRow : global::System.Data.DataRow {
             
-            private ChargesLocDataTable tableChargesLoc;
+            private QuitanceDataTable tableQuitance;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ChargesLocRow(global::System.Data.DataRowBuilder rb) : 
+            internal QuitanceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableChargesLoc = ((ChargesLocDataTable)(this.Table));
+                this.tableQuitance = ((QuitanceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int IdCharge {
+            public int Id {
                 get {
-                    return ((int)(this[this.tableChargesLoc.IdChargeColumn]));
+                    return ((int)(this[this.tableQuitance.IdColumn]));
                 }
                 set {
-                    this[this.tableChargesLoc.IdChargeColumn] = value;
+                    this[this.tableQuitance.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime DateFacture {
+            public string Periode {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableChargesLoc.DateFactureColumn]));
+                        return ((string)(this[this.tableQuitance.PeriodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'DateFacture\' dans la table \'ChargesLoc\' est DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Periode\' dans la table \'Quitance\' est DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableChargesLoc.DateFactureColumn] = value;
+                    this[this.tableQuitance.PeriodeColumn] = value;
                 }
             }
             
@@ -623,14 +639,14 @@ namespace Montrottier_V2 {
             public string Element {
                 get {
                     try {
-                        return ((string)(this[this.tableChargesLoc.ElementColumn]));
+                        return ((string)(this[this.tableQuitance.ElementColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Element\' dans la table \'ChargesLoc\' est DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Element\' dans la table \'Quitance\' est DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableChargesLoc.ElementColumn] = value;
+                    this[this.tableQuitance.ElementColumn] = value;
                 }
             }
             
@@ -639,51 +655,79 @@ namespace Montrottier_V2 {
             public decimal Montant {
                 get {
                     try {
-                        return ((decimal)(this[this.tableChargesLoc.MontantColumn]));
+                        return ((decimal)(this[this.tableQuitance.MontantColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Montant\' dans la table \'ChargesLoc\' est DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Montant\' dans la table \'Quitance\' est DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableChargesLoc.MontantColumn] = value;
+                    this[this.tableQuitance.MontantColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDateFactureNull() {
-                return this.IsNull(this.tableChargesLoc.DateFactureColumn);
+            public string Regle {
+                get {
+                    try {
+                        return ((string)(this[this.tableQuitance.RegleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'Regle\' dans la table \'Quitance\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQuitance.RegleColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDateFactureNull() {
-                this[this.tableChargesLoc.DateFactureColumn] = global::System.Convert.DBNull;
+            public bool IsPeriodeNull() {
+                return this.IsNull(this.tableQuitance.PeriodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPeriodeNull() {
+                this[this.tableQuitance.PeriodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsElementNull() {
-                return this.IsNull(this.tableChargesLoc.ElementColumn);
+                return this.IsNull(this.tableQuitance.ElementColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetElementNull() {
-                this[this.tableChargesLoc.ElementColumn] = global::System.Convert.DBNull;
+                this[this.tableQuitance.ElementColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsMontantNull() {
-                return this.IsNull(this.tableChargesLoc.MontantColumn);
+                return this.IsNull(this.tableQuitance.MontantColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetMontantNull() {
-                this[this.tableChargesLoc.MontantColumn] = global::System.Convert.DBNull;
+                this[this.tableQuitance.MontantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRegleNull() {
+                return this.IsNull(this.tableQuitance.RegleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRegleNull() {
+                this[this.tableQuitance.RegleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -691,22 +735,22 @@ namespace Montrottier_V2 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ChargesLocRowChangeEvent : global::System.EventArgs {
+        public class QuitanceRowChangeEvent : global::System.EventArgs {
             
-            private ChargesLocRow eventRow;
+            private QuitanceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRowChangeEvent(ChargesLocRow row, global::System.Data.DataRowAction action) {
+            public QuitanceRowChangeEvent(QuitanceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChargesLocRow Row {
+            public QuitanceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -734,7 +778,7 @@ namespace Montrottier_V2.MontrottierDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ChargesLocTableAdapter : global::System.ComponentModel.Component {
+    public partial class QuitanceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -748,7 +792,7 @@ namespace Montrottier_V2.MontrottierDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ChargesLocTableAdapter() {
+        public QuitanceTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -845,48 +889,55 @@ namespace Montrottier_V2.MontrottierDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ChargesLoc";
-            tableMapping.ColumnMappings.Add("IdCharge", "IdCharge");
-            tableMapping.ColumnMappings.Add("DateFacture", "DateFacture");
+            tableMapping.DataSetTable = "Quitance";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Periode", "Periode");
             tableMapping.ColumnMappings.Add("Element", "Element");
             tableMapping.ColumnMappings.Add("Montant", "Montant");
+            tableMapping.ColumnMappings.Add("Regle", "Regle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ChargesLoc] WHERE (([IdCharge] = @Original_IdCharge) AND ((@IsNull_DateFacture = 1 AND [DateFacture] IS NULL) OR ([DateFacture] = @Original_DateFacture)) AND ((@IsNull_Element = 1 AND [Element] IS NULL) OR ([Element] = @Original_Element)) AND ((@IsNull_Montant = 1 AND [Montant] IS NULL) OR ([Montant] = @Original_Montant)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Quitance] WHERE (([Id] = @Original_Id) AND ((@IsNull_Periode = 1 AND [Periode] IS NULL) OR ([Periode] = @Original_Periode)) AND ((@IsNull_Element = 1 AND [Element] IS NULL) OR ([Element] = @Original_Element)) AND ((@IsNull_Montant = 1 AND [Montant] IS NULL) OR ([Montant] = @Original_Montant)) AND ((@IsNull_Regle = 1 AND [Regle] IS NULL) OR ([Regle] = @Original_Regle)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdCharge", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCharge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateFacture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateFacture", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Periode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Periode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Element", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Montant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Montant", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Regle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Regle", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ChargesLoc] ([DateFacture], [Element], [Montant]) VALUES (@Dat" +
-                "eFacture, @Element, @Montant);\r\nSELECT IdCharge, DateFacture, Element, Montant F" +
-                "ROM ChargesLoc WHERE (IdCharge = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Quitance] ([Periode], [Element], [Montant], [Regle]) VALUES (@" +
+                "Periode, @Element, @Montant, @Regle);\r\nSELECT Id, Periode, Element, Montant, Reg" +
+                "le FROM Quitance WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateFacture", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Periode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Montant", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Regle", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ChargesLoc] SET [DateFacture] = @DateFacture, [Element] = @Element, [Montant] = @Montant WHERE (([IdCharge] = @Original_IdCharge) AND ((@IsNull_DateFacture = 1 AND [DateFacture] IS NULL) OR ([DateFacture] = @Original_DateFacture)) AND ((@IsNull_Element = 1 AND [Element] IS NULL) OR ([Element] = @Original_Element)) AND ((@IsNull_Montant = 1 AND [Montant] IS NULL) OR ([Montant] = @Original_Montant)));
-SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge = @IdCharge)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Quitance] SET [Periode] = @Periode, [Element] = @Element, [Montant] = @Montant, [Regle] = @Regle WHERE (([Id] = @Original_Id) AND ((@IsNull_Periode = 1 AND [Periode] IS NULL) OR ([Periode] = @Original_Periode)) AND ((@IsNull_Element = 1 AND [Element] IS NULL) OR ([Element] = @Original_Element)) AND ((@IsNull_Montant = 1 AND [Montant] IS NULL) OR ([Montant] = @Original_Montant)) AND ((@IsNull_Regle = 1 AND [Regle] IS NULL) OR ([Regle] = @Original_Regle)));
+SELECT Id, Periode, Element, Montant, Regle FROM Quitance WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateFacture", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Periode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Montant", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdCharge", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCharge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateFacture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateFacture", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFacture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Regle", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Periode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Periode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Periode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Element", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Montant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Montant", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Montant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdCharge", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdCharge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Regle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Regle", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -902,7 +953,7 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdCharge, DateFacture, Element, Montant FROM dbo.ChargesLoc";
+            this._commandCollection[0].CommandText = "SELECT Id, Periode, Element, Montant, Regle FROM dbo.Quitance";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -910,7 +961,7 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet2.ChargesLocDataTable dataTable) {
+        public virtual int Fill(MontrottierDataSet1.QuitanceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -923,9 +974,9 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet2.ChargesLocDataTable GetData() {
+        public virtual MontrottierDataSet1.QuitanceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet2.ChargesLocDataTable dataTable = new DataSet2.ChargesLocDataTable();
+            MontrottierDataSet1.QuitanceDataTable dataTable = new MontrottierDataSet1.QuitanceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -933,15 +984,15 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet2.ChargesLocDataTable dataTable) {
+        public virtual int Update(MontrottierDataSet1.QuitanceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet2 dataSet) {
-            return this.Adapter.Update(dataSet, "ChargesLoc");
+        public virtual int Update(MontrottierDataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "Quitance");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -963,15 +1014,15 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdCharge, global::System.Nullable<global::System.DateTime> Original_DateFacture, string Original_Element, global::System.Nullable<decimal> Original_Montant) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdCharge));
-            if ((Original_DateFacture.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_DateFacture.Value));
-            }
-            else {
+        public virtual int Delete(int Original_Id, string Original_Periode, string Original_Element, global::System.Nullable<decimal> Original_Montant, string Original_Regle) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
+            if ((Original_Periode == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Periode));
             }
             if ((Original_Element == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -988,6 +1039,14 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Regle == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Regle));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1009,12 +1068,12 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> DateFacture, string Element, global::System.Nullable<decimal> Montant) {
-            if ((DateFacture.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(DateFacture.Value));
+        public virtual int Insert(string Periode, string Element, global::System.Nullable<decimal> Montant, string Regle) {
+            if ((Periode == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Periode));
             }
             if ((Element == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1027,6 +1086,12 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Regle == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Regle));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1048,12 +1113,12 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> DateFacture, string Element, global::System.Nullable<decimal> Montant, int Original_IdCharge, global::System.Nullable<global::System.DateTime> Original_DateFacture, string Original_Element, global::System.Nullable<decimal> Original_Montant, int IdCharge) {
-            if ((DateFacture.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(DateFacture.Value));
+        public virtual int Update(string Periode, string Element, global::System.Nullable<decimal> Montant, string Regle, int Original_Id, string Original_Periode, string Original_Element, global::System.Nullable<decimal> Original_Montant, string Original_Regle, int Id) {
+            if ((Periode == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Periode));
             }
             if ((Element == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1067,32 +1132,46 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_IdCharge));
-            if ((Original_DateFacture.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_DateFacture.Value));
+            if ((Regle == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Regle));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
+            if ((Original_Periode == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Periode));
             }
             if ((Original_Element == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Element));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Element));
             }
             if ((Original_Montant.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_Montant.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_Montant.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(IdCharge));
+            if ((Original_Regle == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Regle));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1113,110 +1192,58 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> DateFacture, string Element, global::System.Nullable<decimal> Montant, int Original_IdCharge, global::System.Nullable<global::System.DateTime> Original_DateFacture, string Original_Element, global::System.Nullable<decimal> Original_Montant) {
-            return this.Update(DateFacture, Element, Montant, Original_IdCharge, Original_DateFacture, Original_Element, Original_Montant, Original_IdCharge);
+        public virtual int Update(string Periode, string Element, global::System.Nullable<decimal> Montant, string Regle, int Original_Id, string Original_Periode, string Original_Element, global::System.Nullable<decimal> Original_Montant, string Original_Regle) {
+            return this.Update(Periode, Element, Montant, Regle, Original_Id, Original_Periode, Original_Element, Original_Montant, Original_Regle, Original_Id);
         }
     }
     
     /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
+
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" +
         "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")]
+ 
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
-        private UpdateOrderOption _updateOrder;
+       
         
-        private ChargesLocTableAdapter _chargesLocTableAdapter;
+        private QuitanceTableAdapter _quitanceTableAdapter;
         
-        private bool _backupDataSetBeforeUpdate;
-        
-        private global::System.Data.IDbConnection _connection;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public UpdateOrderOption UpdateOrder {
-            get {
-                return this._updateOrder;
-            }
-            set {
-                this._updateOrder = value;
-            }
-        }
         
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ChargesLocTableAdapter ChargesLocTableAdapter {
+        public QuitanceTableAdapter QuitanceTableAdapter {
             get {
-                return this._chargesLocTableAdapter;
+                return this._quitanceTableAdapter;
             }
             set {
-                this._chargesLocTableAdapter = value;
+                this._quitanceTableAdapter = value;
             }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool BackupDataSetBeforeUpdate {
-            get {
-                return this._backupDataSetBeforeUpdate;
-            }
-            set {
-                this._backupDataSetBeforeUpdate = value;
-            }
-        }
         
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
-        public global::System.Data.IDbConnection Connection {
-            get {
-                if ((this._connection != null)) {
-                    return this._connection;
-                }
-                if (((this._chargesLocTableAdapter != null) 
-                            && (this._chargesLocTableAdapter.Connection != null))) {
-                    return this._chargesLocTableAdapter.Connection;
-                }
-                return null;
-            }
-            set {
-                this._connection = value;
-            }
-        }
         
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        public int TableAdapterInstanceCount {
-            get {
-                int count = 0;
-                if ((this._chargesLocTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                return count;
-            }
-        }
         
         /// <summary>
         ///Update rows in top-down order.
         ///</summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(MontrottierDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._chargesLocTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ChargesLoc.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._quitanceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Quitance.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._chargesLocTableAdapter.Update(updatedRows));
+                    result = (result + this._quitanceTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1228,13 +1255,13 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(MontrottierDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._chargesLocTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ChargesLoc.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._quitanceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Quitance.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._chargesLocTableAdapter.Update(addedRows));
+                    result = (result + this._quitanceTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1246,13 +1273,13 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(DataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(MontrottierDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._chargesLocTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ChargesLoc.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._quitanceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Quitance.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._chargesLocTableAdapter.Update(deletedRows));
+                    result = (result + this._quitanceTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1264,39 +1291,19 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private global::System.Data.DataRow[] GetRealUpdatedRows(global::System.Data.DataRow[] updatedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
-            if (((updatedRows == null) 
-                        || (updatedRows.Length < 1))) {
-                return updatedRows;
-            }
-            if (((allAddedRows == null) 
-                        || (allAddedRows.Count < 1))) {
-                return updatedRows;
-            }
-            global::System.Collections.Generic.List<global::System.Data.DataRow> realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
-            for (int i = 0; (i < updatedRows.Length); i = (i + 1)) {
-                global::System.Data.DataRow row = updatedRows[i];
-                if ((allAddedRows.Contains(row) == false)) {
-                    realUpdatedRows.Add(row);
-                }
-            }
-            return realUpdatedRows.ToArray();
-        }
         
         /// <summary>
         ///Update all changes to the dataset.
         ///</summary>
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(DataSet2 dataSet) {
+        public virtual int UpdateAll(MontrottierDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._chargesLocTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._chargesLocTableAdapter.Connection) == false))) {
+            if (((this._quitanceTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._quitanceTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
                         "e chaîne de connexion.");
             }
@@ -1334,13 +1341,13 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._chargesLocTableAdapter != null)) {
-                    revertConnections.Add(this._chargesLocTableAdapter, this._chargesLocTableAdapter.Connection);
-                    this._chargesLocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._chargesLocTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._chargesLocTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._chargesLocTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._chargesLocTableAdapter.Adapter);
+                if ((this._quitanceTableAdapter != null)) {
+                    revertConnections.Add(this._quitanceTableAdapter, this._quitanceTableAdapter.Connection);
+                    this._quitanceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._quitanceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._quitanceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._quitanceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._quitanceTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1401,9 +1408,9 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._chargesLocTableAdapter != null)) {
-                    this._chargesLocTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._chargesLocTableAdapter]));
-                    this._chargesLocTableAdapter.Transaction = null;
+                if ((this._quitanceTableAdapter != null)) {
+                    this._quitanceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._quitanceTableAdapter]));
+                    this._quitanceTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
@@ -1419,104 +1426,42 @@ SELECT IdCharge, DateFacture, Element, Montant FROM ChargesLoc WHERE (IdCharge =
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected virtual void SortSelfReferenceRows(global::System.Data.DataRow[] rows, global::System.Data.DataRelation relation, bool childFirst) {
+            global::System.Array.Sort<global::System.Data.DataRow>(rows, new SelfReferenceComparer(relation, childFirst));
+        }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected virtual bool MatchTableAdapterConnection(global::System.Data.IDbConnection inputConnection) {
+            if ((this._connection != null)) {
+                return true;
+            }
+            if (((this.Connection == null) 
+                        || (inputConnection == null))) {
+                return true;
+            }
+            if (string.Equals(this.Connection.ConnectionString, inputConnection.ConnectionString, global::System.StringComparison.Ordinal)) {
+                return true;
+            }
+            return false;
+        }
         
         /// <summary>
-        
+        ///Update Order Option
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public enum UpdateOrderOption {
+            
+            InsertUpdateDelete = 0,
+            
+            UpdateInsertDelete = 1,
+        }
+
         /// <summary>
         ///Used to sort self-referenced table's rows
         ///</summary>
-        private class SelfReferenceComparer : object, global::System.Collections.Generic.IComparer<global::System.Data.DataRow> {
-            
-            private global::System.Data.DataRelation _relation;
-            
-            private int _childFirst;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SelfReferenceComparer(global::System.Data.DataRelation relation, bool childFirst) {
-                this._relation = relation;
-                if (childFirst) {
-                    this._childFirst = -1;
-                }
-                else {
-                    this._childFirst = 1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private global::System.Data.DataRow GetRoot(global::System.Data.DataRow row, out int distance) {
-                global::System.Diagnostics.Debug.Assert((row != null));
-                global::System.Data.DataRow root = row;
-                distance = 0;
-
-                global::System.Collections.Generic.IDictionary<global::System.Data.DataRow, global::System.Data.DataRow> traversedRows = new global::System.Collections.Generic.Dictionary<global::System.Data.DataRow, global::System.Data.DataRow>();
-                traversedRows[row] = row;
-
-                global::System.Data.DataRow parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
-                for (
-                ; ((parent != null) 
-                            && (traversedRows.ContainsKey(parent) == false)); 
-                ) {
-                    distance = (distance + 1);
-                    root = parent;
-                    traversedRows[parent] = parent;
-                    parent = parent.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
-                }
-
-                if ((distance == 0)) {
-                    traversedRows.Clear();
-                    traversedRows[row] = row;
-                    parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Original);
-                    for (
-                    ; ((parent != null) 
-                                && (traversedRows.ContainsKey(parent) == false)); 
-                    ) {
-                        distance = (distance + 1);
-                        root = parent;
-                        traversedRows[parent] = parent;
-                        parent = parent.GetParentRow(this._relation, global::System.Data.DataRowVersion.Original);
-                    }
-                }
-
-                return root;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Compare(global::System.Data.DataRow row1, global::System.Data.DataRow row2) {
-                if (object.ReferenceEquals(row1, row2)) {
-                    return 0;
-                }
-                if ((row1 == null)) {
-                    return -1;
-                }
-                if ((row2 == null)) {
-                    return 1;
-                }
-
-                int distance1 = 0;
-                global::System.Data.DataRow root1 = this.GetRoot(row1, out distance1);
-
-                int distance2 = 0;
-                global::System.Data.DataRow root2 = this.GetRoot(row2, out distance2);
-
-                if (object.ReferenceEquals(root1, root2)) {
-                    return (this._childFirst * distance1.CompareTo(distance2));
-                }
-                else {
-                    global::System.Diagnostics.Debug.Assert(((root1.Table != null) 
-                                    && (root2.Table != null)));
-                    if ((root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2))) {
-                        return -1;
-                    }
-                    else {
-                        return 1;
-                    }
-                }
-            }
-        }
+        
+        
     }
 }
 
