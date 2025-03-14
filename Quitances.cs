@@ -16,6 +16,9 @@ using MimeKit;
 //using Microsoft.Reporting.Map.WebForms.BingMaps;
 using System.IO;
 
+using System.Runtime.Remoting.Messaging;
+using System.Net.Mail;
+
 namespace Montrottier_V2
 {
     public partial class Quitances : Form
@@ -82,15 +85,18 @@ namespace Montrottier_V2
             // envois du rapport .pdf par mail
             MimeMessage MailToLocataire = new MimeMessage();
             MailToLocataire.From.Add(new MailboxAddress("Philippe SAUVAGE","psauvage73@yahoo.fr"));
-            //MailToLocataire.To.Add(MailboxAddress.Parse("chloe.collingwood@outlook.fr"));
-            MailToLocataire.To.Add(MailboxAddress.Parse("psauvage73@yahoo.fr"));
+            string strAdreseMail = GetAdresseMail();
+            MailToLocataire.To.Add(MailboxAddress.Parse(strAdreseMail));
             MailToLocataire.Subject = "Quitance";
-            MailToLocataire.Body = new TextPart("plain")
-                {
-                    Text = "En PJ votre quitance au format pdf" 
-                };
-            
-            SmtpClient client = new SmtpClient();
+
+
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.TextBody = "En PJ votre quitance au format pdf";
+            bodyBuilder.Attachments.Add(@"C:\Users\Thierry\source\repos\Montrottier V2\RptQuitance.pdf");
+            MailToLocataire.Body = bodyBuilder.ToMessageBody();
+
+
+            MailKit.Net.Smtp.SmtpClient client = new MailKit.Net.Smtp.SmtpClient();
             try
             {
                 client.Connect("smtp.mail.yahoo.com", 465, true);
@@ -115,12 +121,20 @@ namespace Montrottier_V2
         }
 
 
-        private string GetAdresse()
+        private string GetAdressePostale()
         {
             string[] infos;
             infos = lstLocataires.Text.Split('/');
 
             return infos[1] + "\nLes Genets " + infos[4] + "\n69770  MONTROTTIER"; 
+        }
+
+        private string GetAdresseMail()
+        {
+            string[] infos;
+            infos = lstLocataires.Text.Split('/');
+
+            return infos[3];
         }
 
         private void lstLocataires_SelectedIndexChanged(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace Montrottier_V2
 
             
             // l adresse du locataire est passée au rapport en parametre
-            string strAdresseLoc = GetAdresse();
+            string strAdresseLoc = GetAdressePostale();
             ReportParameter parameter = new ReportParameter();
             parameter.Name = "ParamNomLocataire";
             parameter.Values.Add(strAdresseLoc);
