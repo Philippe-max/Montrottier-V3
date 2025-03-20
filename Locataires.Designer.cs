@@ -164,7 +164,7 @@
             this.groupBox1.Location = new System.Drawing.Point(388, 358);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(305, 195);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Locataire2";
             // 
@@ -189,7 +189,7 @@
             this.groupBox2.Location = new System.Drawing.Point(61, 358);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(310, 195);
-            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Locataire1";
             // 

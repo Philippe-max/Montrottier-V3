@@ -35,12 +35,12 @@ namespace Montrottier_V2
 
             if (chbArchives.Checked == true)
             {
-                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2,  Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot";
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2,  Type, Situation, MntLoyerHCInit, BoiteLettre, IdBail from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot";
 
             }
             else
             {
-                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2, Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot where Baux.Archive = 0";
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2, Type, Situation, MntLoyerHCInit, BoiteLettre, IdBail from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot where Baux.Archive = 0";
 
 
             }
@@ -50,7 +50,7 @@ namespace Montrottier_V2
             {
                 string slocataire = reader["Nom1"].ToString() + ' ' + reader["Prenom1"].ToString() + '/' + reader["Nom2"].ToString() + ' ' + reader["Prenom2"].ToString();
                 string sLot = reader["Type"].ToString() + ' ' + reader["Situation"].ToString();
-                dataGridView1.Rows.Add(slocataire, sLot, reader["MntLoyerHCInit"], reader[3], reader[4], reader["BoiteLettre"]);
+                dataGridView1.Rows.Add(slocataire, sLot, reader["MntLoyerHCInit"], reader[3], reader[4], reader["BoiteLettre"], reader["IdBail"]);
 
             }
             c.Close();
@@ -82,16 +82,7 @@ namespace Montrottier_V2
             DataReaderLocataires.Close();
 
             // liste deroulante des lots libres
-            string strLot;
-            command.CommandText = " select idLot, Type, Surface, Niveau, Situation from TLots";
-
-            SqlDataReader monlecteur = command.ExecuteReader();
-            while (monlecteur.Read())
-            {
-                strLot = monlecteur["idLot"].ToString() + ' ' + monlecteur["Type"].ToString() + ' ' + monlecteur["Surface"].ToString() + " " + monlecteur["Niveau"].ToString() + " " + monlecteur["Situation"].ToString();
-                lstLots.Items.Add(strLot);
-            }
-
+            RefreshListLots();
 
         }
 
@@ -110,7 +101,7 @@ namespace Montrottier_V2
             command.Connection = c;
 
             string strSQL;
-            strSQL = "INSERT INTO Baux ( IdLot, IdLocataire, DateDebutBail, MntLoyerHCInit,MntProvCharges ) VALUES (@idLot , @idLocataire, @DateDebutBail,@MntHCinit,@ProvCharges)";
+            strSQL = "INSERT INTO Baux ( IdLot, IdLocataire, DateDebutBail, MntLoyerHCInit,MntProvCharges, BoiteLettre ) VALUES (@idLot , @idLocataire, @DateDebutBail,@MntHCinit,@ProvCharges,'" + txtBoiteLettre.Text + "' )";
             MessageBox.Show(strSQL);
             command.CommandText = strSQL;
 
@@ -118,8 +109,8 @@ namespace Montrottier_V2
             SqlParameter prm1 = new SqlParameter("@idLot", idLot);
             SqlParameter prm2 = new SqlParameter("@idLocataire", idLocataire);
             SqlParameter prm3 = new SqlParameter("@DateDebutBail", dTPdebut.Value.Date);
-            SqlParameter prm4 = new SqlParameter("@MntHCinit", 200);
-            SqlParameter prm5 = new SqlParameter("@ProvCharges", 200);
+            SqlParameter prm4 = new SqlParameter("@MntHCinit", txtMntCHinit.Text);
+            SqlParameter prm5 = new SqlParameter("@ProvCharges", txtProvCharges.Text);
 
             command.Parameters.Add(prm1);
             command.Parameters.Add(prm2);
@@ -130,7 +121,7 @@ namespace Montrottier_V2
             command.ExecuteNonQuery();
 
             RefreshDataGrid();
-
+            RefreshListLots();
         }
 
         private int RecupereId (string sSelection)
@@ -151,5 +142,43 @@ namespace Montrottier_V2
         {
             RefreshDataGrid();
         }
+
+        private void btnFinBail_Click(object sender, EventArgs e)
+        {
+            // archivage du bail
+            MessageBox.Show("Le bail n'est pas supprimé, il est archivé "+ "\n\nLe lot redevient disponible");
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
+
+            string s = "update Baux set archive = 1, DateArchivage = @DateArchivage where IdBail = " + dataGridView1.SelectedRows[0].Cells["IdBail"].Value;
+            
+            command.CommandText = s;
+            SqlParameter prm = new SqlParameter("@DateArchivage", dtpDateArchivage.Value.Date);
+            command.Parameters.Add(prm);
+            command.ExecuteNonQuery();
+            c.Close();
+            RefreshDataGrid();
+            //rendre le lot disponible
+            RefreshListLots();
+        }
+        private void RefreshListLots()
+        {
+            lstLots.Items.Clear();
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
+            c.Open();
+            string strLot;
+            SqlCommand command = c.CreateCommand();
+            command.CommandText = " select idLot, Type, Surface, Niveau, Situation from TLots where idLot not in ( select idLot from Baux where archive = 0 )";
+            SqlDataReader monlecteur = command.ExecuteReader();
+            while (monlecteur.Read())
+            {
+                strLot = monlecteur["idLot"].ToString() + ' ' + monlecteur["Type"].ToString() + ' ' + monlecteur["Surface"].ToString() + " " + monlecteur["Niveau"].ToString() + " " + monlecteur["Situation"].ToString();
+                lstLots.Items.Add(strLot);
+            }
+
+        }
+
     }
 }

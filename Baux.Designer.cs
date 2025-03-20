@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MntHC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MntCharges = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstLocataires = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,22 +56,28 @@
             this.chbArchives = new System.Windows.Forms.CheckBox();
             this.dTPRevision = new System.Windows.Forms.DateTimePicker();
             this.dTPdebut = new System.Windows.Forms.DateTimePicker();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoiteLettre = new System.Windows.Forms.TextBox();
+            this.btnFinBail = new System.Windows.Forms.Button();
+            this.IdBail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpDateArchivage = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -78,17 +85,18 @@
             this.MntHC,
             this.MntCharges,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.IdBail});
             this.dataGridView1.Location = new System.Drawing.Point(47, 38);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(933, 219);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -117,18 +125,23 @@
             this.Column3.HeaderText = "Date Derniere Reval";
             this.Column3.Name = "Column3";
             // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "B. au lettre";
+            this.Column4.Name = "Column4";
+            // 
             // lstLocataires
             // 
             this.lstLocataires.FormattingEnabled = true;
-            this.lstLocataires.Location = new System.Drawing.Point(47, 313);
+            this.lstLocataires.Location = new System.Drawing.Point(47, 287);
             this.lstLocataires.Name = "lstLocataires";
-            this.lstLocataires.Size = new System.Drawing.Size(196, 30);
+            this.lstLocataires.Size = new System.Drawing.Size(196, 56);
             this.lstLocataires.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 297);
+            this.label1.Location = new System.Drawing.Point(44, 273);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 2;
@@ -137,7 +150,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(281, 297);
+            this.label2.Location = new System.Drawing.Point(281, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 4;
@@ -146,9 +159,9 @@
             // lstLots
             // 
             this.lstLots.FormattingEnabled = true;
-            this.lstLots.Location = new System.Drawing.Point(284, 313);
+            this.lstLots.Location = new System.Drawing.Point(284, 287);
             this.lstLots.Name = "lstLots";
-            this.lstLots.Size = new System.Drawing.Size(196, 30);
+            this.lstLots.Size = new System.Drawing.Size(196, 56);
             this.lstLots.TabIndex = 3;
             this.lstLots.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -280,11 +293,6 @@
             this.dTPdebut.Size = new System.Drawing.Size(200, 20);
             this.dTPdebut.TabIndex = 21;
             // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "B. au lettre";
-            this.Column4.Name = "Column4";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -295,20 +303,55 @@
             this.label10.Text = "Numero Boite au lettre";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // textBox2
+            // txtBoiteLettre
             // 
-            this.textBox2.Location = new System.Drawing.Point(616, 323);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 20);
-            this.textBox2.TabIndex = 22;
+            this.txtBoiteLettre.Location = new System.Drawing.Point(616, 323);
+            this.txtBoiteLettre.Name = "txtBoiteLettre";
+            this.txtBoiteLettre.Size = new System.Drawing.Size(75, 20);
+            this.txtBoiteLettre.TabIndex = 22;
+            this.txtBoiteLettre.Text = "BL";
+            // 
+            // btnFinBail
+            // 
+            this.btnFinBail.Location = new System.Drawing.Point(30, 77);
+            this.btnFinBail.Name = "btnFinBail";
+            this.btnFinBail.Size = new System.Drawing.Size(75, 23);
+            this.btnFinBail.TabIndex = 24;
+            this.btnFinBail.Text = "Fin du bail";
+            this.btnFinBail.UseVisualStyleBackColor = true;
+            this.btnFinBail.Click += new System.EventHandler(this.btnFinBail_Click);
+            // 
+            // IdBail
+            // 
+            this.IdBail.HeaderText = "IdBail";
+            this.IdBail.Name = "IdBail";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dtpDateArchivage);
+            this.groupBox1.Controls.Add(this.btnFinBail);
+            this.groupBox1.Location = new System.Drawing.Point(456, 364);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 119);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Fin du bail";
+            // 
+            // dtpDateArchivage
+            // 
+            this.dtpDateArchivage.Location = new System.Drawing.Point(30, 32);
+            this.dtpDateArchivage.Name = "dtpDateArchivage";
+            this.dtpDateArchivage.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateArchivage.TabIndex = 25;
             // 
             // Baux
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 504);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoiteLettre);
             this.Controls.Add(this.dTPdebut);
             this.Controls.Add(this.dTPRevision);
             this.Controls.Add(this.chbArchives);
@@ -333,6 +376,7 @@
             this.Text = "Baux";
             this.Load += new System.EventHandler(this.Baux_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,6 +411,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoiteLettre;
+        private System.Windows.Forms.Button btnFinBail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdBail;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dtpDateArchivage;
     }
 }

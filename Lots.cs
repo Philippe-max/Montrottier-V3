@@ -73,10 +73,13 @@ namespace Montrottier_V2
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                strSQL = "INSERT INTO TLots (Type,Surface,Situation, Niveau ) VALUES ('" + row.Cells["Type"].Value + "','"+ row.Cells["Surface"].Value + "','" + row.Cells["Situation"].Value + "','" + row.Cells["Niveau"].Value + "')";
-                
+                Decimal Surface = Convert.ToDecimal(row.Cells["Surface"].Value);
+                strSQL = "INSERT INTO TLots (Type,Surface,Situation, Niveau ) VALUES ('" + row.Cells["Type"].Value + "',@Surface,'" + row.Cells["Situation"].Value + "','" + row.Cells["Niveau"].Value + "')";
+                SqlParameter prm1 = new SqlParameter("@Surface", Surface);
+
                 MessageBox.Show(strSQL);
                 command.CommandText = strSQL;
+                command.Parameters.Add(prm1);
 
                 command.ExecuteNonQuery();
 
