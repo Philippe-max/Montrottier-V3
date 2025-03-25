@@ -8,15 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Montrottier_V2
 {
     public partial class Paiements : Form
     {
 
+        public class LocatairePayeur
+        {
+            public int idLocatairePayeur { get; set; }
+            public int Montant { get; set; }
+        }
+        
+        public LocatairePayeur monLocatairePayeur = new LocatairePayeur();
 
-        public int idLocataire;
-
+        
         public Paiements()
         {
             InitializeComponent();
@@ -27,46 +34,37 @@ namespace Montrottier_V2
 
             numTxtMnt.Controls[0].Visible = false;
             numTxtMntCaf.Controls[0].Visible = false; ;
+            lstVLocataires.Columns[0].Width = 260;
+            lstVLocataires.Columns[1].Width = 0;
+            lstVLocataires.Columns[2].Width = 0;
 
             SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
             SqlCommand command = c.CreateCommand();
             command.Connection = c;
-
-
-            // liste deroulante des locataires disponibles
+           
+            // liste des locataires  
+            
             string strLocataire;
-            command.CommandText = "select IdLocataire, nom1, Prenom1, nom2, Prenom2 from Locataires where archive =  0";
+            command.CommandText = "select Locataires.IdLocataire, nom1, Prenom1, nom2, Prenom2, MntLoyerHCActuel + MntProvCharges as MontantDu from Locataires inner join Baux on Baux.IdLocataire = Locataires.IdLocataire where Baux.archive =  0";
             SqlDataReader DataReaderLocataires = command.ExecuteReader();
             while (DataReaderLocataires.Read())
             {
-                strLocataire = DataReaderLocataires["IdLocataire"].ToString() + ' ' + DataReaderLocataires["nom1"].ToString() + ' ' + DataReaderLocataires["Prenom1"].ToString() + " / " + DataReaderLocataires["nom2"].ToString() + " " + DataReaderLocataires["Prenom2"].ToString();
-                lstLocataires.Items.Add(strLocataire);
+                strLocataire = DataReaderLocataires["nom1"].ToString() + ' ' + DataReaderLocataires["Prenom1"].ToString() + " / " + DataReaderLocataires["nom2"].ToString() + " " + DataReaderLocataires["Prenom2"].ToString();
+                
+                string[] rows = { strLocataire, DataReaderLocataires["IdLocataire"].ToString(),  DataReaderLocataires["MontantDu"].ToString() } ;
+                var listviewitem = new ListViewItem(rows);
+                lstVLocataires.Items.Add(listviewitem);
+
             }
             DataReaderLocataires.Close();
 
-            refeshDataGrid();
         }
 
-        private void lstLocataires_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
 
-            idLocataire = RecupereId(lstLocataires.Text);
+        
 
-            // affichage historique des paiements dans datagrid
-            refeshDataGrid();
-        }
-        private int RecupereId(string sSelection)
-        {
-            int iData;
-            string[] SData;
-            SData = sSelection.Split(' ');
-            iData = Int32.Parse(SData[0]);
-            return iData;
-        }
-
-        private string RecupereType()
+        private string RecupereTypePaiement()
         {
             string sType = "";
             if (rbnVirement.Checked == true)
@@ -82,7 +80,7 @@ namespace Montrottier_V2
         {
             string strSQL;
             string sDate;
-            strSQL = "Select Datepaiement, Montant, MontantCAF, Type from Paiements where IdLocataire = " + idLocataire + " order by Datepaiement desc";
+            strSQL = "Select Datepaiement, Montant, MontantCAF, Type from Paiements where IdLocataire = " + monLocatairePayeur.idLocatairePayeur + " order by Datepaiement desc";
             dataGridView1.Rows.Clear();
             SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
@@ -106,12 +104,11 @@ namespace Montrottier_V2
             //enregistrement du paiement
 
             string strSQL ="";
-            int idLocataire;
-            idLocataire = RecupereId(lstLocataires.Text);
+            
             string strType;
-            strType = RecupereType();
+            strType = RecupereTypePaiement();
 
-            strSQL = "INSERT INTO Paiements (idLocataire, Datepaiement, Montant,MontantCAF, Type ) VALUES ('" + idLocataire + "',@Datepaiement,'" + numTxtMnt.Value + "','" + numTxtMntCaf.Value + "','" + strType + "')";
+            strSQL = "INSERT INTO Paiements (idLocataire, Datepaiement, Montant,MontantCAF, Type ) VALUES ('" + monLocatairePayeur.idLocatairePayeur + "',@Datepaiement,'" + numTxtMnt.Value + "','" + numTxtMntCaf.Value + "','" + strType + "')";
             MessageBox.Show(strSQL);
             SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
@@ -126,5 +123,20 @@ namespace Montrottier_V2
 
         }
 
+        private void lstVLocataires_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ListView.SelectedListViewItemCollection LocPayant = lstVLocataires.SelectedItems;
+
+            if (lstVLocataires.SelectedItems.Count.ToString() == "1")
+            {
+                ListViewItem item = LocPayant[0];
+                monLocatairePayeur.idLocatairePayeur = int.Parse(item.SubItems[1].Text);
+                monLocatairePayeur.Montant = int.Parse(item.SubItems[2].Text);
+                numTxtMnt.Value = monLocatairePayeur.Montant;
+                refeshDataGrid();
+            }
+
+        }
     }
 }

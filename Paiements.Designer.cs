@@ -30,8 +30,11 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstLocataires = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.rbnVirement = new System.Windows.Forms.RadioButton();
             this.rbnCheque = new System.Windows.Forms.RadioButton();
@@ -41,10 +44,10 @@
             this.btnEnr = new System.Windows.Forms.Button();
             this.numTxtMnt = new System.Windows.Forms.NumericUpDown();
             this.numTxtMntCaf = new System.Windows.Forms.NumericUpDown();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lstVLocataires = new System.Windows.Forms.ListView();
+            this.Nom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IdLoc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MntDu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTxtMnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTxtMntCaf)).BeginInit();
@@ -73,28 +76,39 @@
             this.dataGridView1.Size = new System.Drawing.Size(686, 150);
             this.dataGridView1.TabIndex = 16;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Date";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Montant";
+            this.Column2.Name = "Column2";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "MontantCAF";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Type";
+            this.Column5.Name = "Column5";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 85);
+            this.label1.Location = new System.Drawing.Point(49, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Locataire";
             // 
-            // lstLocataires
-            // 
-            this.lstLocataires.FormattingEnabled = true;
-            this.lstLocataires.Location = new System.Drawing.Point(52, 101);
-            this.lstLocataires.Name = "lstLocataires";
-            this.lstLocataires.Size = new System.Drawing.Size(196, 30);
-            this.lstLocataires.TabIndex = 17;
-            this.lstLocataires.SelectedIndexChanged += new System.EventHandler(this.lstLocataires_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(288, 85);
+            this.label2.Location = new System.Drawing.Point(437, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 20;
@@ -135,7 +149,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 141);
+            this.label3.Location = new System.Drawing.Point(446, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 25;
@@ -143,14 +157,14 @@
             // 
             // dtpDatePaiement
             // 
-            this.dtpDatePaiement.Location = new System.Drawing.Point(427, 111);
+            this.dtpDatePaiement.Location = new System.Drawing.Point(430, 180);
             this.dtpDatePaiement.Name = "dtpDatePaiement";
             this.dtpDatePaiement.Size = new System.Drawing.Size(200, 20);
             this.dtpDatePaiement.TabIndex = 26;
             // 
             // btnEnr
             // 
-            this.btnEnr.Location = new System.Drawing.Point(52, 247);
+            this.btnEnr.Location = new System.Drawing.Point(52, 259);
             this.btnEnr.Name = "btnEnr";
             this.btnEnr.Size = new System.Drawing.Size(75, 23);
             this.btnEnr.TabIndex = 27;
@@ -161,7 +175,7 @@
             // numTxtMnt
             // 
             this.numTxtMnt.DecimalPlaces = 2;
-            this.numTxtMnt.Location = new System.Drawing.Point(291, 110);
+            this.numTxtMnt.Location = new System.Drawing.Point(440, 76);
             this.numTxtMnt.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -174,7 +188,7 @@
             // numTxtMntCaf
             // 
             this.numTxtMntCaf.DecimalPlaces = 2;
-            this.numTxtMntCaf.Location = new System.Drawing.Point(291, 168);
+            this.numTxtMntCaf.Location = new System.Drawing.Point(440, 134);
             this.numTxtMntCaf.Maximum = new decimal(new int[] {
             2000,
             0,
@@ -184,31 +198,42 @@
             this.numTxtMntCaf.Size = new System.Drawing.Size(120, 20);
             this.numTxtMntCaf.TabIndex = 29;
             // 
-            // Column1
+            // lstVLocataires
             // 
-            this.Column1.HeaderText = "Date";
-            this.Column1.Name = "Column1";
+            this.lstVLocataires.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nom,
+            this.IdLoc,
+            this.MntDu});
+            this.lstVLocataires.FullRowSelect = true;
+            this.lstVLocataires.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lstVLocataires.HideSelection = false;
+            this.lstVLocataires.Location = new System.Drawing.Point(52, 68);
+            this.lstVLocataires.MultiSelect = false;
+            this.lstVLocataires.Name = "lstVLocataires";
+            this.lstVLocataires.Size = new System.Drawing.Size(269, 97);
+            this.lstVLocataires.TabIndex = 30;
+            this.lstVLocataires.UseCompatibleStateImageBehavior = false;
+            this.lstVLocataires.View = System.Windows.Forms.View.Details;
+            this.lstVLocataires.SelectedIndexChanged += new System.EventHandler(this.lstVLocataires_SelectedIndexChanged);
             // 
-            // Column2
+            // Nom
             // 
-            this.Column2.HeaderText = "Montant";
-            this.Column2.Name = "Column2";
+            this.Nom.Text = "Nom";
             // 
-            // Column4
+            // IdLoc
             // 
-            this.Column4.HeaderText = "MontantCAF";
-            this.Column4.Name = "Column4";
+            this.IdLoc.Text = "IdLoc";
             // 
-            // Column5
+            // MntDu
             // 
-            this.Column5.HeaderText = "Type";
-            this.Column5.Name = "Column5";
+            this.MntDu.Text = "MntDu";
             // 
             // Paiements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstVLocataires);
             this.Controls.Add(this.numTxtMntCaf);
             this.Controls.Add(this.numTxtMnt);
             this.Controls.Add(this.btnEnr);
@@ -219,7 +244,6 @@
             this.Controls.Add(this.rbnVirement);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstLocataires);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Name = "Paiements";
@@ -238,7 +262,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lstLocataires;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rbnVirement;
         private System.Windows.Forms.RadioButton rbnCheque;
@@ -252,5 +275,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ListView lstVLocataires;
+        private System.Windows.Forms.ColumnHeader Nom;
+        private System.Windows.Forms.ColumnHeader IdLoc;
+        private System.Windows.Forms.ColumnHeader MntDu;
     }
 }
