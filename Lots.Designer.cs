@@ -44,6 +44,8 @@
             this.Suivant = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblNrePieces = new System.Windows.Forms.Label();
+            this.txtNbrePieces = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,15 +93,15 @@
             // 
             // txtSurface
             // 
-            this.txtSurface.Location = new System.Drawing.Point(240, 59);
+            this.txtSurface.Location = new System.Drawing.Point(286, 58);
             this.txtSurface.Name = "txtSurface";
-            this.txtSurface.Size = new System.Drawing.Size(100, 20);
+            this.txtSurface.Size = new System.Drawing.Size(69, 20);
             this.txtSurface.TabIndex = 1;
             // 
             // lblSurface
             // 
             this.lblSurface.AutoSize = true;
-            this.lblSurface.Location = new System.Drawing.Point(237, 43);
+            this.lblSurface.Location = new System.Drawing.Point(283, 43);
             this.lblSurface.Name = "lblSurface";
             this.lblSurface.Size = new System.Drawing.Size(77, 13);
             this.lblSurface.TabIndex = 2;
@@ -108,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(375, 43);
+            this.label2.Location = new System.Drawing.Point(390, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 4;
@@ -116,9 +118,9 @@
             // 
             // txtNiveau
             // 
-            this.txtNiveau.Location = new System.Drawing.Point(378, 59);
+            this.txtNiveau.Location = new System.Drawing.Point(393, 58);
             this.txtNiveau.Name = "txtNiveau";
-            this.txtNiveau.Size = new System.Drawing.Size(100, 20);
+            this.txtNiveau.Size = new System.Drawing.Size(81, 20);
             this.txtNiveau.TabIndex = 3;
             this.txtNiveau.Text = "A";
             // 
@@ -191,11 +193,29 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Lots";
             // 
+            // lblNrePieces
+            // 
+            this.lblNrePieces.AutoSize = true;
+            this.lblNrePieces.Location = new System.Drawing.Point(181, 43);
+            this.lblNrePieces.Name = "lblNrePieces";
+            this.lblNrePieces.Size = new System.Drawing.Size(65, 13);
+            this.lblNrePieces.TabIndex = 17;
+            this.lblNrePieces.Text = "Nbre Pieces";
+            // 
+            // txtNbrePieces
+            // 
+            this.txtNbrePieces.Location = new System.Drawing.Point(184, 59);
+            this.txtNbrePieces.Name = "txtNbrePieces";
+            this.txtNbrePieces.Size = new System.Drawing.Size(74, 20);
+            this.txtNbrePieces.TabIndex = 16;
+            // 
             // Lots
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblNrePieces);
+            this.Controls.Add(this.txtNbrePieces);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Suivant);
@@ -235,5 +255,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Niveau;
         private System.Windows.Forms.DataGridViewTextBoxColumn Situation;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNrePieces;
+        private System.Windows.Forms.TextBox txtNbrePieces;
     }
 }

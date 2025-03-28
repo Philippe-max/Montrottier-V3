@@ -32,7 +32,7 @@ namespace Montrottier_V2
             }
             else
             {
-                strType = "Appart";
+                strType = "Appart T" + txtNbrePieces.Text ;
             }
             dataGridView1.Rows.Add(new object[] { strType, txtSurface.Text, txtNiveau.Text.ToUpper(), txtSituation.Text });
             initForm();
@@ -43,6 +43,8 @@ namespace Montrottier_V2
             txtSituation.Text = "";
             txtSurface.Text = "";
             txtSituation.Text = "";
+            txtNbrePieces.Visible = false;
+            lblNrePieces.Visible = false;
             txtSurface.Visible = false;
             lblSurface.Visible = false;
             rbtParking.Checked = true;
@@ -58,6 +60,8 @@ namespace Montrottier_V2
                 txtSurface.Visible = true;
                 lblSurface.Visible = true;
                 txtNiveau.Text = string.Empty;
+                txtNbrePieces.Visible = true;
+                lblNrePieces.Visible = true;
             }
 
         }
