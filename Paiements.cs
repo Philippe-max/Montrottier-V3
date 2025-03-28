@@ -20,10 +20,11 @@ namespace Montrottier_V2
             public int idLocatairePayeur { get; set; }
             public int Montant { get; set; }
         }
-        
+
         public LocatairePayeur monLocatairePayeur = new LocatairePayeur();
 
         
+
         public Paiements()
         {
             InitializeComponent();
@@ -78,9 +79,13 @@ namespace Montrottier_V2
 
         private void refeshDataGrid()
         {
+
+            // le groupage des paiements est base sur le champ [dbo].[Paiements].[Groupe]
+
+            string strAnneeComplete ="1973";
             string strSQL;
-            string sDate;
-            strSQL = "Select Datepaiement, Montant, MontantCAF, Type from Paiements where IdLocataire = " + monLocatairePayeur.idLocatairePayeur + " order by Datepaiement desc";
+
+            strSQL = "Select year(Datepaiement) as Annee, format(Datepaiement,'d', 'fr-fr') as Datepaiement, Montant, MontantCAF, Type, Groupe from Paiements where IdLocataire = " + monLocatairePayeur.idLocatairePayeur + " order by Year(Datepaiement) desc, Month(Datepaiement) desc, Day(Datepaiement) desc ";
             dataGridView1.Rows.Clear();
             SqlConnection c = new SqlConnection(FrmMain.connectionString);
             c.Open();
@@ -90,9 +95,20 @@ namespace Montrottier_V2
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                sDate = reader["Datepaiement"].ToString();
-                sDate = sDate.Substring(0, 8);
-                dataGridView1.Rows.Add(sDate, reader["Montant"].ToString(), reader["MontantCAF"].ToString(), reader["Type"].ToString());
+                if (Convert.ToBoolean(reader["Groupe"]) == false)
+                {
+                  
+                   
+                    dataGridView1.Rows.Add("-", reader["Annee"].ToString(), reader["Datepaiement"].ToString(), reader["Montant"].ToString(), reader["MontantCAF"].ToString(), reader["Type"].ToString());
+                }
+                else 
+                {
+                    if ( strAnneeComplete != reader["Annee"].ToString()) 
+                        {
+                        strAnneeComplete = reader["Annee"].ToString();
+                        dataGridView1.Rows.Add("+", strAnneeComplete,"....","....","....");
+                        }
+                }
 
             }
             c.Close();
@@ -101,10 +117,13 @@ namespace Montrottier_V2
 
         private void btnEnr_Click(object sender, EventArgs e)
         {
+
+
+            
+            string strSQL;
+
             //enregistrement du paiement
 
-            string strSQL ="";
-            
             string strType;
             strType = RecupereTypePaiement();
 
@@ -137,6 +156,33 @@ namespace Montrottier_V2
                 refeshDataGrid();
             }
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            // action de groupage ou dégroupage pour l'année de la part de l'utilisateur
+            // mise a jour de la table Paiements
+
+            string strSQL;
+            if (Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value) == "-")
+            {
+                strSQL = "update Paiements set Groupe = 'true' where IdLocataire = '" + monLocatairePayeur.idLocatairePayeur + "' and year(Datepaiement) = " + dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                
+            }
+            else
+            {
+                strSQL = "update Paiements set Groupe = 'false' where IdLocataire = '" + monLocatairePayeur.idLocatairePayeur + "' and year(Datepaiement) = " + dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
+            }
+            
+            SqlConnection c = new SqlConnection(FrmMain.connectionString);
+            c.Open();
+            SqlCommand command = c.CreateCommand();
+            command.Connection = c;
+            command.CommandText = strSQL;
+            command.ExecuteNonQuery();
+            refeshDataGrid();
         }
     }
 }

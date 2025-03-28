@@ -35,12 +35,12 @@ namespace Montrottier_V2
 
             if (chbArchives.Checked == true)
             {
-                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2,  Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot";
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2,  Type, Surface, Situation, MntLoyerHCInit, MntProvCharges, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot";
 
             }
             else
             {
-                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2, Type, Situation, MntLoyerHCInit, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot where Baux.Archive = 0";
+                command.CommandText = "select Locataires.Nom1, Locataires.Prenom1, Locataires.Nom2, Locataires.Prenom2, Type, Surface, Situation, MntLoyerHCInit, MntProvCharges, BoiteLettre from Baux inner join Locataires on Baux.IdLocataire = Locataires.IdLocataire inner join Tlots on Tlots.IdLot = Baux.IdLot where Baux.Archive = 0";
 
 
             }
@@ -49,8 +49,8 @@ namespace Montrottier_V2
             while (reader.Read())
             {
                 string slocataire = reader["Nom1"].ToString() + ' ' + reader["Prenom1"].ToString() + '/' + reader["Nom2"].ToString() + ' ' + reader["Prenom2"].ToString();
-                string sLot = reader["Type"].ToString() + ' ' + reader["Situation"].ToString();
-                dataGridView1.Rows.Add(slocataire, sLot, reader["MntLoyerHCInit"], reader[3], reader[4], reader["BoiteLettre"]);
+                string sLot = reader["Type"].ToString() + ' ' + reader["Surface"].ToString() + "m² " + reader["Situation"].ToString();
+                dataGridView1.Rows.Add(slocataire, sLot, reader["MntLoyerHCInit"], reader["MntProvCharges"], reader[4], reader["BoiteLettre"]);
 
             }
             c.Close();
